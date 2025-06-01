@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AddCategoryRequest } from '../models/add-category-request.model';
 import { CategoryService } from '../services/category.service';
@@ -16,7 +16,10 @@ export class AddCategoryComponent implements OnDestroy {
   model: AddCategoryRequest;
   private addCategorySubscription?: Subscription;
 
-  constructor(private categoryService: CategoryService, private router: Router) {
+  constructor(
+    @Inject(CategoryService) private categoryService: CategoryService,
+    @Inject(Router) private router: Router
+  ) {
     this.model = {
       name: '',
       urlHandle: ''

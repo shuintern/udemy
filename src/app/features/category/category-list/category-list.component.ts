@@ -13,11 +13,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./category-list.component.css']
 })
 export class CategoryListComponent implements OnInit {
-    /**
-     *
-     */
-
-    // categories?: Category[];
+    // Using Observable to handle asynchronous data fetching
+    // This allows the component to reactively update when the data changes
     categories$?: Observable<Category[]>;
 
     constructor(private categoryService: CategoryService) {
